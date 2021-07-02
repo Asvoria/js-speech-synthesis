@@ -24,7 +24,8 @@ onload = function() {
 
                 for(i = 0; i < voices.length ; i++) {
                     if(voices[i].name === 'Google UK English Male') {
-                      utterance.voice = voices[i];
+                        utterance.voice = voices[i];
+                        break;
                     }
                 }
                 utterance.lang = 'en-GB';
