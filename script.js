@@ -23,7 +23,7 @@ onload = function() {
                 var voices = synth.getVoices();
 
                 for(i = 0; i < voices.length ; i++) {
-                    if(voices[i].name === 'en-US') {
+                    if(voices[i].name === 'Google UK English Male') {
                       utterance.voice = voices[i];
                     }
                 }
