@@ -8,8 +8,6 @@ onload = function() {
         var flag = false;
         
         var synth = window.speechSynthesis;
-        var voices = synth.getVoices();
-
 
         playEle.addEventListener('click', onClickPlay);
         pauseEle.addEventListener('click', onClickPause);
@@ -21,7 +19,7 @@ onload = function() {
                 utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
                 //utterance.lang = 'en-US';
                 //utterance.voice = getVoices()[0];
-                
+                var voices = synth.getVoices();
                 var num_voice = 0;
                 for(i = 0; i < voices.length ; i++) {
                     if(voices[i].name === 'Google UK English Male') {
