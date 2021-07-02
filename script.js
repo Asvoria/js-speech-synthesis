@@ -17,16 +17,7 @@ onload = function() {
                 utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
                 //utterance.lang = 'en-US';
                 //utterance.voice = getVoices()[0];
-                var voices = getVoices();
-                var num_voice = 0;
-                for(i = 0; i < voices.length ; i++) {
-                    if(voices[i].name === 'Google UK English Male') {
-                        num_voice = i;
-                        break;
-                    }
-                }
-                utterance.voice = getVoices()[num_voice];
-
+                utterance.voice = getVoices()[3];
                 utterance.onend = function(){
                     flag = false; playEle.className = pauseEle.className = ''; stopEle.className = 'stopped';
                 };
