@@ -21,14 +21,15 @@ onload = function() {
                 
                 var synth = window.speechSynthesis;
                 var voices = synth.getVoices();
-
+                var num_voice = 0;
                 for(i = 0; i < voices.length ; i++) {
                     if(voices[i].name === 'Google UK English Male') {
-                        utterance.voice = voices[i];
+                        num_voice = i;
                         break;
                     }
                 }
                 utterance.lang = 'en-GB';
+                utterance.voice = getVoices()[num_voice];
 
                 utterance.onend = function(){
                     flag = false; playEle.className = pauseEle.className = ''; stopEle.className = 'stopped';
