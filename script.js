@@ -16,7 +16,8 @@ onload = function() {
             if(!flag){
                 flag = true;
                 utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
-                utterance.voice = getVoices()[3];
+                utterance.voice = getVoices();
+                utterance.lang = 'en-US';
                 //utterance.voice = synthesizer.SelectVoiceByHints(VoiceGender.Neutral, VoiceAge.NotSet, 0, CultureInfo.GetCultureInfo("fr-fr"));
                 
                 
