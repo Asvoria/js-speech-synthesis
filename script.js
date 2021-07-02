@@ -6,8 +6,6 @@ onload = function() {
         var pauseEle = document.querySelector('#pause');
         var stopEle = document.querySelector('#stop');
         var flag = false;
-        
-        var synth = window.speechSynthesis;
 
         playEle.addEventListener('click', onClickPlay);
         pauseEle.addEventListener('click', onClickPause);
@@ -19,7 +17,7 @@ onload = function() {
                 utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
                 //utterance.lang = 'en-US';
                 //utterance.voice = getVoices()[0];
-                var voices = synth.getVoices();
+                var voices = getVoices();
                 var num_voice = 0;
                 for(i = 0; i < voices.length ; i++) {
                     if(voices[i].name === 'Google UK English Male') {
@@ -27,8 +25,6 @@ onload = function() {
                         break;
                     }
                 }
-
-                utterance.lang = 'en-GB';
                 utterance.voice = getVoices()[num_voice];
 
                 utterance.onend = function(){
@@ -36,7 +32,7 @@ onload = function() {
                 };
                 playEle.className = 'played';
                 stopEle.className = '';
-                synth.speak(utterance);
+                speak(utterance);
             }
              if (paused) { /* unpause/resume narration */
                 playEle.className = 'played';
