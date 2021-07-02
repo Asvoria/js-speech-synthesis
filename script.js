@@ -9,13 +9,6 @@ onload = function() {
         
         var synth = window.speechSynthesis;
         var voices = synth.getVoices();
-        var num_voice = 0;
-        for(i = 0; i < voices.length ; i++) {
-            if(voices[i].name === 'Google UK English Male') {
-                num_voice = i;
-                break;
-            }
-        }
 
 
         playEle.addEventListener('click', onClickPlay);
@@ -28,6 +21,14 @@ onload = function() {
                 utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
                 //utterance.lang = 'en-US';
                 //utterance.voice = getVoices()[0];
+                
+                var num_voice = 0;
+                for(i = 0; i < voices.length ; i++) {
+                    if(voices[i].name === 'Google UK English Male') {
+                        num_voice = i;
+                        break;
+                    }
+                }
 
                 utterance.lang = 'en-GB';
                 utterance.voice = getVoices()[num_voice];
