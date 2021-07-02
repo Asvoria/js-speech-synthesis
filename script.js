@@ -18,6 +18,7 @@ onload = function() {
                 //utterance.lang = 'en-US';
                 //utterance.voice = getVoices()[0];
                 utterance.voice = getVoices()[3];
+                utterance.volume = 10;
                 utterance.onend = function(){
                     flag = false; playEle.className = pauseEle.className = ''; stopEle.className = 'stopped';
                 };
