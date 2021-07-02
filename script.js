@@ -16,7 +16,10 @@ onload = function() {
             if(!flag){
                 flag = true;
                 utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
-                utterance.voice = getVoices()[0];
+                //utterance.voice = getVoices()[0];
+                utterance.voice = synthesizer.SelectVoiceByHints(VoiceGender.Neutral, VoiceAge.NotSet, 0, CultureInfo.GetCultureInfo("fr-fr"));
+                
+                
                 utterance.onend = function(){
                     flag = false; playEle.className = pauseEle.className = ''; stopEle.className = 'stopped';
                 };
