@@ -27,7 +27,7 @@ onload = function() {
                       utterance.voice = voices[i];
                     }
                 }
-                utterance.lang = 'en-US';
+                utterance.lang = 'en-GB';
 
                 utterance.onend = function(){
                     flag = false; playEle.className = pauseEle.className = ''; stopEle.className = 'stopped';
