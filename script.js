@@ -16,11 +16,19 @@ onload = function() {
             if(!flag){
                 flag = true;
                 utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
+                //utterance.lang = 'en-US';
+                //utterance.voice = getVoices()[0];
+                
+                var synth = window.speechSynthesis;
+                var voices = synth.getVoices();
+
+                for(i = 0; i < voices.length ; i++) {
+                    if(voices[i].name === 'en-US') {
+                      utterance.voice = voices[i];
+                    }
+                }
                 utterance.lang = 'en-US';
-                utterance.voice = getVoices()[0];
-                //utterance.voice = synthesizer.SelectVoiceByHints(VoiceGender.Neutral, VoiceAge.NotSet, 0, CultureInfo.GetCultureInfo("fr-fr"));
-                
-                
+
                 utterance.onend = function(){
                     flag = false; playEle.className = pauseEle.className = ''; stopEle.className = 'stopped';
                 };
